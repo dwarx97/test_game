@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     }
     void Restart()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }

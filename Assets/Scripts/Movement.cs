@@ -18,19 +18,19 @@ public class Movement : MonoBehaviour
     {
         rb.AddForce(0, 0, this.forwardForce * Time.deltaTime);
         //Debug.Log(this.Force);
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow)) //sang trái
         {
             rb.AddForce(-this.movementForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow)) //sang phải
         {
             rb.AddForce(this.movementForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) 
         {
             rb.AddForce(0, this.movementForce * Time.deltaTime, 0, ForceMode.VelocityChange);
         }
-        if (rb.position.y <= -1f) 
+        if (rb.position.y <= -1f || rb.position.x <= -7.5f || rb.position.x >= 7.5f) // nhận diện người chơi rơi khỏi map
         {
            FindObjectOfType<GameManager>().EndGame();
         }
